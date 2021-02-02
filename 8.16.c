@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<math.h>
+#include<string.h>
 
 int main() {
 	char str[100];
@@ -8,7 +9,8 @@ int main() {
 	char* p = str;
 	int tag=0;
 	int a[100], k = 0;
-	for (int i = 0; *(p + i) != '\0'; i++) {
+	//for (int i = 0; *(p + i) != '\0'; i++) 
+	for (int i = 0; i<=strlen(str); i++) {
 		if (*(p + i) >= '0' && *(p + i) <= '9' && tag == 0) {
 			tag = 1;
 		}
@@ -26,7 +28,7 @@ int main() {
 					//printf("m=%d\n", *(p + i - j - 1) - '0');
 				}
 				k++;
-				tag = 0;
+				tag = 1;
 			}
 		}
 		else if (tag != 0) {
@@ -40,9 +42,10 @@ int main() {
 		}
 		else
 			tag = 0;
+		//printf("tag=%d\n",tag);
 	}
 	printf("k=%d\n",k);
 	for (int i = 0; i < k; i++) {
-		printf("a[%d]=%d\n",k+1,a[i]);
+		printf("a[%d]=%d\n",i+1,a[i]);
 	}
 }
